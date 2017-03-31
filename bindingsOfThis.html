@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #container {
+        height: 100px;
+        width: 100px;
+        border: 1px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- On on HTML element, this refers to the element -->
+    <!-- Output: <div id="container" class="red" onclick="console.log(this)"></div> -->
+    <div id="container" class="red" onclick="console.log(this)"></div>
+
+    <!-- this is able to access properties of the element -->
+    <!-- Output: 2 -->
+    <p data-number="2" onclick="console.log(this.dataset.number)">Hello</p>
+
+    <script>
+      console.log(this); // Output: Window object
+
+      var containerProps = {
+        id: 1,
+        customProp: function() {
+          console.log(this) // this refers to the containerProps object
+        },
+      };
+
+      // An arrow function is automatically bound to its parent scope's this
+      globalObject = this;
+      hello = (() => this);
+      console.log(globalObject === hello()); // Output: true
+    </script>
+  </body>
+</html>
