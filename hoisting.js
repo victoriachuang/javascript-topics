@@ -39,7 +39,7 @@ function hoist() {
 // of a is available when hoist is called
 
 const a = "hello";
-hoist(); // Output: undefined
+hoist(); // Output: hello
 
 function hoist() {
   console.log(a);

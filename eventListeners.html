@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="container">
+      <p>Here is how to create a custom event listener besides those built into the browser, such as mouseover, error, keypress and others.</p>
+    </div>
+
+    <script>
+      // Creates a new instance of an event and gives it a name
+      var event = new Event("moo");
+      var element = document.getElementById("container");
+
+      // Bind the event to an element and declare a function
+      // that will be called when the event is dispatched
+      element.addEventListener("moo", function(e) {
+        alert("triggered event");
+      });
+
+      // Dispatch the event
+      element.dispatchEvent(event);
+    </script>
+  </body>
+</html>

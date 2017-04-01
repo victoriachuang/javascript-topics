@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div>
+      <img src="https://s-media-cache-ak0.pinimg.com/736x/86/75/98/8675987eb6696493475fb985e64d9ee9.jpg">
+    </div>
+
+    <!-- $(window).on('load') won't fire until
+    the contents of this iframe are loaded -->
+    <iframe src="http://techcrunch.com"></iframe>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      // This will execute when the DOM has been loaded
+      // and elements can be manipulated.
+      $(document).ready(function() {
+        alert("document ready");
+      });
+
+      // This will execute once the entire page, including
+      // images and iframes, have been loaded
+      $(window).on("load", function() {
+        alert("window loaded");
+      });
+    </script>
+  </body>
+</html
