@@ -24,3 +24,23 @@ hoist(); // Output: hoisted to the top
 function hoist() {
   console.log('hoisted to the top');
 };
+
+// This will output undefined because
+// the assignment of a is not hoisted
+
+hoist(); // Output: undefined
+
+const a = "hello";
+function hoist() {
+  console.log(a);
+}
+
+// This will output hello because the definition
+// of a is available when hoist is called
+
+const a = "hello";
+hoist(); // Output: hello
+
+function hoist() {
+  console.log(a);
+}

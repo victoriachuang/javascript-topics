@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        height: 100px;
+        width: 100px;
+        border: 1px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- When you click this button, the onclick listener on the div will be
+    triggered too, because the click event will bubble up to its parents -->
+    <div onclick="alert('Div received the event');">
+      <button onclick="alert('Button is clicked');">
+        Hello click me
+      </button>
+    </div>
+
+    <!-- When this button is clicked, the click event will not be
+    triggered because we have specified in the click handler
+    that the click event should not bubble up to its parents -->
+    <div onclick="alert('Outside div received event');">
+      <button onclick="alert('Button clicked'); clickHandler(event);">
+        Click me!
+      </button>
+    </div>
+
+    <script>
+      function clickHandler(event) {
+        event.stopPropagation();
+      }
+    </script>
+  </body>
+</html>
