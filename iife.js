@@ -5,7 +5,7 @@
 (function() {
   var a = "hello";
   console.log(a + " from inside the function");
-})(); // Ouput: hello from outside the function
+})(); // Ouput: hello from inside the function
 
 // a has been defined but is not accessible
 // from outside the IIFE's scope
