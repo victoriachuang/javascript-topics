@@ -32,6 +32,30 @@
       globalObject = this;
       hello = (() => this);
       console.log(globalObject === hello()); // Output: true
+
+      function Age() {
+        // "this" refers to the Age object
+        var ageThis = this;
+        ageThis.age = 0;
+
+        setInterval(function() {
+          // I can't make this this.age, because here "this" creates
+          // a new context and refers to its current scope, not to Age
+          ageThis.age += 1;
+        }, 10);
+      }
+
+      function Clock() {
+        // Here, "this" refers to the Clock object
+        this.time = 0;
+
+        setInterval(() => {
+          // Using an arrow function, I can refer to the Clock object as "this"
+          // inside this function because "this" does not create its own context
+          this.time += 1;
+          timeCounter = this.time;
+        }, 10);
+      }
     </script>
   </body>
 </html>
