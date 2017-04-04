@@ -1,24 +1,31 @@
-// Javascript will hoist declarations of variables
-// to the top of their scopes, but not initializations
+// Javascript will hoist declarations of variables to
+// the top of their parent scopes, but not definitions
 
-const x = 7;
-const y = 5;
-console.log(x + ' ' + y); // Output: 7 5
+(function() {
+  var x = 'hello';
+  var y = 'world';
+  console.log(x + ' ' + y);
+})(); // Output: hello world
 
 // This will not work, because y is initialized after it was used
 
-const x = 7;
-console.log(x + ' ' + y); // Error: y is not defined
-const y = 5;
+(function() {
+  var x = 'hello';
+  console.log(x + ' ' + y);
+  var y = 'world';
+})(); // Output: hello undefined
 
 // The above is equivalent to the following
 
-const x = 7;
-let y;
-console.log(x + ' ' + y);
-y = 5;
+(function() {
+  var x = 'hello';
+  var y;
+  console.log(x + ' ' + y);
+  y = 'world';
+})(); // Output: hello undefined
 
-// Function declarations will be hoisted to the top of the scope
+// Function declarations will be hoisted to the top of the parent scope
+
 hoist(); // Output: hoisted to the top
 
 function hoist() {
@@ -28,19 +35,19 @@ function hoist() {
 // This will output undefined because
 // the assignment of a is not hoisted
 
-hoist(); // Output: undefined
+hoistAgain(); // Output: undefined
 
-const a = "hello";
-function hoist() {
+var a = 'hello';
+function hoistAgain() {
   console.log(a);
 }
 
 // This will output hello because the definition
 // of a is available when hoist is called
 
-const a = "hello";
-hoist(); // Output: hello
+var b = 'world';
+hoistAThirdTime(); // Output: world
 
-function hoist() {
-  console.log(a);
+function hoistAThirdTime() {
+  console.log(b);
 }

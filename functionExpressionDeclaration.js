@@ -1,15 +1,16 @@
 // A function expression doesn't require a name, making
 // it an anonymous function. It is commonly used in callbacks
+// or assigning a function to a variable.
 
 setTimeout(function() {
-  alert("hello");
+  alert('hello');
 });
 
 element.onclick = function(counter) {
   return counter += 1;
 };
 
-element.addEventListener("click", function(message) {
+element.addEventListener('click', function(message) {
   console.log(message);
 });
 
@@ -17,7 +18,7 @@ element.addEventListener("click", function(message) {
 // a named function and is called by its name
 
 function printHello() {
-  console.log("hello");
+  console.log('hello');
 }
 
 printHello();

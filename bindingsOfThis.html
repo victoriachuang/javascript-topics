@@ -3,11 +3,11 @@
   <head>
   </head>
   <body>
-    <!-- On on HTML element, this refers to the element -->
+    <!-- On on HTML element, "this" refers to the element as an object -->
     <!-- Output: <div id="container" class="red" onclick="console.log(this)"></div> -->
     <div id="container" class="red" onclick="console.log(this)"></div>
 
-    <!-- this is able to access properties of the element -->
+    <!-- "this" is able to access properties of the element -->
     <!-- Output: 2 -->
     <p data-number="2" onclick="console.log(this.dataset.number)">Hello</p>
 
@@ -21,7 +21,8 @@
         },
       };
 
-      // An arrow function is automatically bound to its parent scope's this
+      // An arrow function is automatically bound to its parent scope's this,
+      // not the scope of the function
       globalObject = this;
       hello = (() => this);
       console.log(globalObject === hello()); // Output: true
@@ -32,7 +33,7 @@
         ageThis.age = 0;
 
         setInterval(function() {
-          // I can't make this this.age, because here "this" creates
+          // I can't make this "this.age", because here "this" creates
           // a new context and refers to its current scope, not to Age
           ageThis.age += 1;
         }, 10);
@@ -44,7 +45,8 @@
 
         setInterval(() => {
           // Using an arrow function, I can refer to the Clock object as "this"
-          // inside this function because "this" does not create its own context
+          // inside this function because "this" is bound to its parent's scopes
+          // and does not create its own context
           this.time += 1;
           timeCounter = this.time;
         }, 10);

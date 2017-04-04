@@ -1,6 +1,6 @@
 // A variable's definition is available from its parent scope.
 
-var a = "kale";
+var a = 'kale';
 
 function scopedVariable() {
   console.log(a);
@@ -14,20 +14,20 @@ scopedVariable(); // Output: kale
 var a;
 
 function scopedVariable() {
-  a = "hello"
+  a = 'hello'
 }
 
 console.log(a); // Output: undefined
 scopedVariable(); // The definition of a is now available to the global scope
-console.log(a); // Output: "hello"
+console.log(a); // Output: hello
 
 // The inclusion of var inside the local scope
 // prevents the globally-scoped a to be reassigned
 
-var a = "hello";
+var a = 'hello';
 
 function scopedVariable() {
-  var a = "kale"
+  var a = 'kale'
 }
 
 console.log(a); // Output: "hello"
